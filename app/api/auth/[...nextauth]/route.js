@@ -12,9 +12,7 @@ const handler = NextAuth({
     }),
   ],
   async session({ session }) {
-    const sessionUser = await User.findOne({
-      email: session.user.email,
-    });
+    const sessionUser = await User.findOne({ email: session.user.email });
 
     session.user.id = sessionUser._id.toString();
   },
@@ -22,9 +20,9 @@ const handler = NextAuth({
     try {
       await connectToDB();
 
-      // check if a user already exists
+      // Check if a user already exists
       const userExists = await User.findOne({ email: profile.email });
-      // if not, create user and save to database
+      // If not, create user and save to database
       if (!userExists) {
         await User.create({
           email: profile.email,
