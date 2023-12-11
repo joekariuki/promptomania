@@ -9,7 +9,7 @@ import Form from "@components/Form";
 const CreatePrompt = () => {
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
-  const CreatePrompt = async (e) => {};
+  const createPrompt = async (e) => {};
   return (
     <Form
       type="Create"
